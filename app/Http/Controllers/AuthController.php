@@ -45,9 +45,9 @@ class AuthController extends Controller
     }
     public function register(Request $request){
         $request->validate([
-            'name' => 'min:2|max:25',
-            'email' => 'email|unique:users',
-            'password' => 'min:4|max:6|confirmed',
+            'name' => 'required|min:2|max:25',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:4|max:6|confirmed',
         ]);
 
         User::create([
